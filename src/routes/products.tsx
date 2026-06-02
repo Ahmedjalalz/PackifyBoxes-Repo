@@ -129,10 +129,10 @@ function ProductsPage() {
           <Reveal>
             <p className="text-xs uppercase tracking-[0.35em] text-primary">Products</p>
             <h1 className="mt-3 max-w-4xl font-display text-5xl leading-[1.02] text-balance md:text-7xl">
-              Premium packaging, organised like a modern CMS.
+              Premium packaging, organized perfectly for your brand.
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-ink-muted">
-              Browse published products by category, search by packaging type, and jump into product details built from the same relational content that powers the admin.
+              Browse our packaging products by category, search by box type, and jump into product details to find the exact structure for your brand.
             </p>
           </Reveal>
 

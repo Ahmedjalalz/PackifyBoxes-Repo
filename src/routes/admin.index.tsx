@@ -1,4 +1,4 @@
-﻿import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { motion } from "framer-motion";
@@ -227,7 +227,7 @@ function AdminPanel() {
                 {pageItems.map((product) => (
                   <div key={product.id} className="overflow-hidden rounded-3xl border bg-card shadow-soft">
                     <div className="aspect-4/3 overflow-hidden bg-muted">
-                      {product.featured_image || product.category?.image_url ? <img src={product.featured_image || product.category?.image_url || ""} alt={product.title} className="h-full w-full object-cover" /> : null}
+                      {product.featured_image || product.category?.image_url ? <img src={product.featured_image || product.category?.image_url || ""} alt={product.title} className="h-full w-full object-cover" loading="lazy" /> : null}
                     </div>
                     <div className="space-y-4 p-4">
                       <div className="flex items-start justify-between gap-3">
@@ -235,12 +235,12 @@ function AdminPanel() {
                           <p className="font-medium">{product.title}</p>
                           <p className="mt-1 text-xs text-muted-foreground">{product.category?.name ?? "Unassigned"}</p>
                         </div>
-                        <div className="flex flex-wrap justify-end gap-2">
+                        <div className="flex flex-wrap items-start justify-end gap-2">
                           <Badge variant={product.is_published ? "default" : "secondary"}>{product.is_published ? "Live" : "Draft"}</Badge>
                           {product.is_featured && <Badge variant="outline">Featured</Badge>}
                         </div>
                       </div>
-                      <p className="text-sm text-ink-muted">{product.short_description}</p>
+                      <p className="text-sm text-ink-muted line-clamp-2">{product.short_description}</p>
                       <div className="flex items-center gap-2">
                         <Button type="button" variant="outline" size="sm" onClick={() => { setEditorProductId(product.id); setEditorOpen(true); }}>Edit</Button>
                         <Button type="button" variant="ghost" size="icon" onClick={() => setDeleteTarget(product.id)}><Trash2 className="h-4 w-4" /></Button>
@@ -270,18 +270,22 @@ function AdminPanel() {
                         <TableCell>
                           <div className="flex items-center gap-4">
                             <div className="h-16 w-20 overflow-hidden rounded-2xl border bg-muted">
-                              {product.featured_image || product.category?.image_url ? <img src={product.featured_image || product.category?.image_url || ""} alt={product.title} className="h-full w-full object-cover" /> : null}
+                              {product.featured_image || product.category?.image_url ? <img src={product.featured_image || product.category?.image_url || ""} alt={product.title} className="h-full w-full object-cover" loading="lazy" /> : null}
                             </div>
                             <div>
                               <p className="font-medium">{product.title}</p>
-                              <p className="max-w-85 text-xs text-muted-foreground">{product.short_description}</p>
+                              <p className="max-w-85 text-xs text-muted-foreground line-clamp-2">{product.short_description}</p>
                               <p className="mt-1 text-[11px] uppercase tracking-[0.3em] text-primary">{product.slug}</p>
                             </div>
                           </div>
                         </TableCell>
                         <TableCell>{product.category?.name ?? "Unassigned"}</TableCell>
                         <TableCell><Badge variant={product.is_published ? "default" : "secondary"}>{product.is_published ? "Published" : "Draft"}</Badge></TableCell>
-                        <TableCell className="flex flex-wrap gap-2">{product.is_featured && <Badge variant="outline">Featured</Badge>}</TableCell>
+                        <TableCell>
+                          <div className="flex flex-wrap gap-2">
+                            {product.is_featured && <Badge variant="outline">Featured</Badge>}
+                          </div>
+                        </TableCell>
                         <TableCell className="text-sm text-muted-foreground">{new Date(product.created_at).toLocaleDateString()}</TableCell>
                         <TableCell className="text-right">
                           <div className="inline-flex items-center gap-1">

@@ -125,6 +125,8 @@ function ProductDetail() {
                   src={product.featured_image || product.category?.image_url || ""}
                   alt={product.title}
                   className="h-full w-full object-cover"
+                  fetchPriority="high"
+                  loading="eager"
                 />
               </AspectRatio>
             </div>

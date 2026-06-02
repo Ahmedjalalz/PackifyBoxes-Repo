@@ -141,6 +141,8 @@ function HomePage() {
                 width={1600}
                 height={1280}
                 className="w-full h-auto object-cover"
+                fetchPriority="high"
+                loading="eager"
               />
             </div>
             <motion.div
@@ -207,7 +209,7 @@ function HomePage() {
             <Reveal>
               <p className="text-xs uppercase tracking-widest text-primary mb-3">Featured categories</p>
               <h2 className="font-display text-4xl md:text-5xl max-w-2xl text-balance">
-                Featured products chosen in the admin.
+                Explore some of our favorite recent packaging projects.
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
