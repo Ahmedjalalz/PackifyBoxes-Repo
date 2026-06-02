@@ -52,9 +52,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "PackifyBoxes — Premium Custom Packaging for Modern Brands" },
       { name: "description", content: "Custom packaging boxes engineered for ambitious brands — luxury rigid, cosmetic, food, shipping and eco mailers. Get a free consultation and quote." },
       { name: "author", content: "PackifyBoxes" },
+      { name: "robots", content: "index, follow" },
       { property: "og:site_name", content: "PackifyBoxes" },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "/packify-icon-OG.png" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "PackifyBoxes — Premium Custom Packaging for Modern Brands" },
+      { name: "twitter:description", content: "Custom packaging boxes engineered for ambitious brands — luxury rigid, cosmetic, food, shipping and eco mailers." },
+      { name: "twitter:image", content: "/packify-icon-OG.png" },
       { name: "theme-color", content: "#f9f7f3" },
     ],
     links: [
@@ -76,7 +81,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "Organization",
           name: "PackifyBoxes",
           description: "Premium custom packaging manufacturer for global brands.",
-          url: "/",
+          url: "https://packifyboxes.com/",
+          logo: "https://packifyboxes.com/packify-icon-OG.png",
+          image: "https://packifyboxes.com/packify-icon-OG.png",
+          sameAs: [
+            "https://twitter.com/packifyboxes",
+            "https://www.instagram.com/packifyboxes",
+            "https://www.linkedin.com/company/packifyboxes"
+          ],
           contactPoint: {
             "@type": "ContactPoint",
             telephone: "+1-555-010-4242",

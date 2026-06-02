@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { listPublicProducts } from "@/lib/product.cms";
 
-const BASE_URL = "";
+const BASE_URL = "https://packifyboxes.com";
 
 const entries = [
   { path: "/", priority: "1.0", changefreq: "weekly" as const },
