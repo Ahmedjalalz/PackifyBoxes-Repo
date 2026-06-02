@@ -1,7 +1,7 @@
 import { c as createClient } from "../_libs/supabase__supabase-js.mjs";
 function createSupabaseClient() {
-  const SUPABASE_URL = process.env.SUPABASE_URL;
-  const SUPABASE_PUBLISHABLE_KEY = process.env.SUPABASE_PUBLISHABLE_KEY ;
+  const SUPABASE_URL = "https://gueywjgmvrthkksazvge.supabase.co";
+  const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_Bh8QK1OsEL3P6m3DnhzRVg_t8a1mbLR";
   return createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
     auth: {
       storage: typeof window !== "undefined" ? localStorage : void 0,
