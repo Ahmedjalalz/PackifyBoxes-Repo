@@ -1,0 +1,1 @@
+import{w as t,L as o}from"./index-CyngFsbP.js";const s=()=>t.jsxs("div",{className:"container-tight py-32 text-center",children:[t.jsx("h1",{className:"font-display text-4xl mb-3",children:"Product not found"}),t.jsx(o,{to:"/products",className:"text-primary underline",children:"Back to products"})]});export{s as notFoundComponent};

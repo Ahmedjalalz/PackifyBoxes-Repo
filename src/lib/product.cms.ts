@@ -321,8 +321,8 @@ async function saveProductWithFallback(data: ProductFormValues) {
 
   while (true) {
     const saveResult = data.id
-      ? await supabaseAdmin.from("products").update(productPayload).eq("id", data.id).select("*").single()
-      : await supabaseAdmin.from("products").insert(productPayload).select("*").single();
+      ? await supabaseAdmin.from("products").update(productPayload as any).eq("id", data.id).select("*").single()
+      : await supabaseAdmin.from("products").insert(productPayload as any).select("*").single();
 
     if (!saveResult.error && saveResult.data) {
       return saveResult.data;

@@ -127,12 +127,7 @@ function HomePage() {
             </motion.div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="relative"
-          >
+          <div className="relative">
             <div className="absolute -inset-6 bg-gradient-accent opacity-20 blur-3xl rounded-full" />
             <div className="relative rounded-3xl overflow-hidden shadow-elegant border border-border/60">
               <img

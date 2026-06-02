@@ -1,1 +1,0 @@
-import{m as c,w as r,h as s}from"./index-DgzZTQFd.js";const n=[["path",{d:"m21 21-4.34-4.34",key:"14j7rj"}],["circle",{cx:"11",cy:"11",r:"8",key:"4ej97u"}]],t=c("search",n);function i({className:e,...a}){return r.jsx("div",{className:s("animate-pulse rounded-md bg-primary/10",e),...a})}export{t as S,i as a};

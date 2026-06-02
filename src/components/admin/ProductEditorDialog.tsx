@@ -74,14 +74,17 @@ function formValuesFromProduct(product: CmsProduct | null, categories: CmsCatego
     meta_title: product?.meta_title ?? "",
     meta_description: product?.meta_description ?? "",
     content_sections: makeSection(product?.content_sections ?? [], {
+      id: "default-section",
       heading: "What makes this box special?",
       content: "Describe the product story, packaging benefits, or brand-specific selling points.",
     }),
     box_styles: makeSection(product?.box_styles ?? [], {
+      id: "default-style",
       title: "Signature style",
       description: "Describe the visual and structural style customers can choose from.",
     }),
     materials: makeSection(product?.materials ?? [], {
+      id: "default-material",
       title: "Premium stock",
       description: "Explain the material options or finishes that pair with this product.",
     }),
