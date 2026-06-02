@@ -10,6 +10,23 @@ if (typeof globalThis.addEventListener === "function") {
     (event) => record(event.reason)
   );
 }
+if (typeof process !== "undefined" && typeof process.on === "function") {
+  process.on("uncaughtException", (error) => record(error));
+  process.on("unhandledRejection", (reason) => record(reason));
+}
+const originalConsoleError = console.error;
+console.error = function(...args) {
+  const errArg = args.find((arg) => arg instanceof Error);
+  if (errArg) {
+    record(errArg);
+  } else if (args.length > 0) {
+    const message = args.map((arg) => typeof arg === "object" && arg !== null ? JSON.stringify(arg) : String(arg)).join(" ");
+    if (!message.includes("h3 swallowed SSR error")) {
+      record(new Error(message));
+    }
+  }
+  originalConsoleError.apply(console, args);
+};
 function consumeLastCapturedError() {
   if (!lastCapturedError) return void 0;
   if (Date.now() - lastCapturedError.at > TTL_MS) {

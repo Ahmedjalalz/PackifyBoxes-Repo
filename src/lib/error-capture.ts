@@ -15,6 +15,27 @@ if (typeof globalThis.addEventListener === "function") {
   );
 }
 
+if (typeof process !== "undefined" && typeof process.on === "function") {
+  process.on("uncaughtException", (error) => record(error));
+  process.on("unhandledRejection", (reason) => record(reason));
+}
+
+// Intercept console.error to capture errors that frameworks like h3 swallow and print
+const originalConsoleError = console.error;
+console.error = function (...args: unknown[]) {
+  const errArg = args.find((arg) => arg instanceof Error);
+  if (errArg) {
+    record(errArg);
+  } else if (args.length > 0) {
+    const message = args.map((arg) => (typeof arg === "object" && arg !== null ? JSON.stringify(arg) : String(arg))).join(" ");
+    // Avoid double-wrapping or capturing our own swallowed error messages
+    if (!message.includes("h3 swallowed SSR error")) {
+      record(new Error(message));
+    }
+  }
+  originalConsoleError.apply(console, args);
+};
+
 export function consumeLastCapturedError(): unknown {
   if (!lastCapturedError) return undefined;
   if (Date.now() - lastCapturedError.at > TTL_MS) {
@@ -25,3 +46,4 @@ export function consumeLastCapturedError(): unknown {
   lastCapturedError = undefined;
   return error;
 }
+
