@@ -9,8 +9,17 @@ export default defineConfig({
   envPrefix: ["VITE_", "SUPABASE_"],
   plugins: [
     tanstackStart(),
-    nitro({ preset: "vercel" }),
+    nitro({
+      preset: "vercel",
+      externals: {
+        inline: ["tslib"],
+      },
+    }),
     viteReact(),
     tailwindcss(),
     tsConfigPaths()
-  ],});
+  ],
+  ssr: {
+    noExternal: ["tslib"],
+  },
+});
