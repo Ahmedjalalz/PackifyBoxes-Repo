@@ -38,7 +38,7 @@ const quoteSchema = objectType({
 const RESEND_API_URL = "https://api.resend.com/emails";
 function getResendConfig() {
   const apiKey = process.env.RESEND_API_KEY;
-  const fromEmail = process.env.RESEND_FROM_EMAIL || "PackifyBoxes <onboarding@resend.dev>";
+  const fromEmail = process.env.RESEND_FROM_EMAIL;
   const toEmail = process.env.RESEND_TO_EMAIL;
   if (!apiKey) {
     throw new Error("Missing RESEND_API_KEY environment variable");
