@@ -35,8 +35,8 @@ import "../_libs/supabase__realtime-js.mjs";
 import "../_libs/supabase__phoenix.mjs";
 import "../_libs/supabase__storage-js.mjs";
 import "../_libs/iceberg-js.mjs";
-import "../_libs/supabase__auth-js.mjs";
 import "tslib";
+import "../_libs/supabase__auth-js.mjs";
 import "../_libs/supabase__functions-js.mjs";
 const Toaster = ({ ...props }) => {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
