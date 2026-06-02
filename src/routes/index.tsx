@@ -77,23 +77,17 @@ function HomePage() {
               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
               Trusted by brands worldwide
             </motion.div>
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+            <h1
               className="font-display font-extrabold text-5xl md:text-6xl lg:text-7xl leading-[1.02] text-balance"
             >
               Packaging that makes <em className="text-primary not-italic font-extrabold">your brand</em> impossible to forget.
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.15 }}
+            </h1>
+            <p
               className="mt-6 text-lg text-ink-muted max-w-xl"
             >
               Custom boxes designed, printed and delivered for modern brands. From luxury rigid
               gift boxes to eco-friendly mailers — engineered in-house, shipped worldwide.
-            </motion.p>
+            </p>
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -149,7 +143,7 @@ function HomePage() {
               <p className="text-2xl font-display">10–14 days</p>
               <p className="text-xs text-ink-muted mt-1">Average production time</p>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
