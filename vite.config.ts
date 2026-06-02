@@ -15,6 +15,9 @@ export default defineConfig({
     tanstackStart(),
     nitro({
       preset: "vercel",
+      externals: {
+        inline: ["tslib"],
+      },
     }),
     viteReact(),
     tailwindcss(),
@@ -26,6 +29,9 @@ export default defineConfig({
       // fully inlined into every chunk instead of left as a bare import.
       tslib: resolve(__dirname, "node_modules/tslib/tslib.es6.mjs"),
     },
+  },
+  ssr: {
+    noExternal: true,
   },
 });
 
