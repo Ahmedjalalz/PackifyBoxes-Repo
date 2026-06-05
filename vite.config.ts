@@ -13,9 +13,7 @@ export default defineConfig({
   envPrefix: ["VITE_", "SUPABASE_"],
   plugins: [
     tanstackStart(),
-    nitro({
-      preset: "vercel"
-    }),
+    nitro({ preset: "vercel" }),
     viteReact(),
     tailwindcss(),
     tsConfigPaths()
