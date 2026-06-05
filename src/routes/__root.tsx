@@ -17,7 +17,7 @@ function NotFoundComponent() {
     <SiteLayout>
       <div className="container-tight py-32 text-center">
         <p className="text-sm uppercase tracking-widest text-primary mb-3">404</p>
-        <h1 className="font-display text-5xl mb-3">Page not found</h1>
+        <h1 className="font-display text-5xl mb-3">Page not found - V2</h1>
         <p className="text-ink-muted mb-6">The page you're looking for doesn't exist.</p>
         <a href="/" className="text-primary underline">Back to home</a>
       </div>
