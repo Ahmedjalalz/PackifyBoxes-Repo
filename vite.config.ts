@@ -25,5 +25,16 @@ export default defineConfig({
       tslib: resolve(__dirname, "node_modules/tslib/tslib.es6.mjs"),
     },
   },
+  environments: {
+    ssr: {
+      build: {
+        rollupOptions: {
+          output: {
+            inlineDynamicImports: true
+          }
+        }
+      }
+    }
+  }
 });
 
