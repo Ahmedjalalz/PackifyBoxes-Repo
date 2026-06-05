@@ -3,12 +3,8 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { motion } from "framer-motion";
 import {
-  BarChart3,
-  CircleCheck,
   LogOut,
-  Package,
   Search,
-  ShieldCheck,
   Tag,
   Trash2,
 } from "lucide-react";
@@ -116,19 +112,6 @@ function AdminPanel() {
     [editorProductId, products],
   );
 
-  const metrics = useMemo(() => {
-    const published = products.filter((product) => product.is_published).length;
-    const featured = products.filter((product) => product.is_featured).length;
-    const drafts = products.length - published;
-
-    return {
-      total: products.length,
-      published,
-      featured,
-      drafts,
-    };
-  }, [products]);
-
   const filteredProducts = useMemo(() => {
     const searchTerm = deferredSearch.trim().toLowerCase();
 
@@ -193,27 +176,6 @@ function AdminPanel() {
       </header>
 
       <main className="container-tight space-y-8 py-8 md:py-10">
-        {/*
-        <section className="space-y-5">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="text-xs uppercase tracking-[0.35em] text-primary">Dashboard</p>
-              <h2 className="font-display text-3xl">Overview</h2>
-              <p className="mt-1 text-sm text-ink-muted">
-                Manage products and categories from a single product-focused workspace.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            <MetricCard title="Total products" value={metrics.total} icon={Package} note="All CMS product records" />
-            <MetricCard title="Published" value={metrics.published} icon={CircleCheck} note="Visible on the storefront" />
-            <MetricCard title="Featured" value={metrics.featured} icon={ShieldCheck} note="Curated product highlights" />
-            <MetricCard title="Drafts" value={metrics.drafts} icon={BarChart3} note="Hidden until published" />
-          </div>
-        </section>
-        */}
-
         <section className="space-y-5">
           <SectionHeader
             title="Products"
@@ -542,33 +504,6 @@ function AdminPanel() {
         </DialogContent>
       </Dialog>
     </div>
-  );
-}
-
-function MetricCard({
-  title,
-  value,
-  note,
-  icon: Icon,
-}: {
-  title: string;
-  value: number;
-  note: string;
-  icon: ComponentType<{ className?: string }>;
-}) {
-  return (
-    <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.25 }} className="rounded-3xl border bg-card p-5 shadow-soft">
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <p className="text-sm text-muted-foreground">{title}</p>
-          <p className="mt-2 font-display text-4xl">{value}</p>
-          <p className="mt-2 text-sm text-ink-muted">{note}</p>
-        </div>
-        <div className="rounded-2xl bg-primary/10 p-3 text-primary">
-          <Icon className="h-5 w-5" />
-        </div>
-      </div>
-    </motion.div>
   );
 }
 
