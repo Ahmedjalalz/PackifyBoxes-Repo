@@ -27,8 +27,5 @@ export default defineConfig({
       tslib: resolve(__dirname, "node_modules/tslib/tslib.es6.mjs"),
     },
   },
-  ssr: {
-    noExternal: true,
-  },
 });
 
