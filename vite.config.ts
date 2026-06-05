@@ -18,13 +18,6 @@ export default defineConfig({
     tailwindcss(),
     tsConfigPaths()
   ],
-  resolve: {
-    alias: {
-      // Force Rollup to resolve tslib to its ESM source file so it gets
-      // fully inlined into every chunk instead of left as a bare import.
-      tslib: resolve(__dirname, "node_modules/tslib/tslib.es6.mjs"),
-    },
-  },
   environments: {
     ssr: {
       build: {
@@ -37,4 +30,3 @@ export default defineConfig({
     }
   }
 });
-
