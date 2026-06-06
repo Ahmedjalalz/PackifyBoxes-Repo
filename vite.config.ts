@@ -9,7 +9,7 @@ import { resolve, dirname } from "node:path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   envPrefix: ["VITE_", "SUPABASE_"],
   plugins: [
     tanstackStart(),
@@ -18,6 +18,14 @@ export default defineConfig({
     tailwindcss(),
     tsConfigPaths()
   ],
+  // noExternal: true bundles ALL deps into the SSR function (required on Vercel).
+  // In dev, the Vite module runner crashes on CJS packages when noExternal is set,
+  // so we only apply it during `vite build`.
+  ...(command === "build" && {
+    ssr: {
+      noExternal: true,
+    },
+  }),
   environments: {
     ssr: {
       build: {
@@ -29,4 +37,4 @@ export default defineConfig({
       }
     }
   }
-});
+}));
