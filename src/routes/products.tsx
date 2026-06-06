@@ -136,11 +136,11 @@ function ProductsPage() {
             </p>
           </Reveal>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
+          {/* <div className="mt-10 grid gap-4 md:grid-cols-3">
             <StatCard title="Published products" value={products.filter((product) => product.is_published).length} />
             <StatCard title="Featured products" value={products.filter((product) => product.is_featured).length} />
             <StatCard title="Categories" value={categoryOptions.length} />
-          </div>
+          </div> */}
         </div>
       </section>
 
