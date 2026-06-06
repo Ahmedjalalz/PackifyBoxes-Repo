@@ -18,9 +18,6 @@ export default defineConfig({
     tailwindcss(),
     tsConfigPaths()
   ],
-  ssr: {
-    noExternal: true,
-  },
   environments: {
     ssr: {
       build: {
