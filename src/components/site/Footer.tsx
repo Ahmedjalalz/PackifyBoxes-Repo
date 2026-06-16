@@ -26,7 +26,7 @@ export function Footer() {
           <div className="space-y-1 text-sm text-ink-muted">
             <div className="flex items-center gap-2"><Phone className="h-3.5 w-3.5" /><span>+1 (555) 010-4242</span></div>
             <div className="flex items-center gap-2"><Mail className="h-3.5 w-3.5" /><span>contact@packifyboxes.com</span></div>
-            <div className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5" /><span>240 Industrial Way, NY</span></div>
+            <div className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5" /><span>3553 11TH ST, ASTORIA, NY 11106</span></div>
           </div>
         </div>
         <div>

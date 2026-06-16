@@ -40,7 +40,7 @@ function ContactPage() {
             {[
               { icon: Mail, label: "Email", value: "contact@packifyboxes.com" },
               { icon: Phone, label: "Phone", value: "+1 (555) 010-4242" },
-              { icon: MapPin, label: "Office", value: "240 Industrial Way, Brooklyn NY 11217" },
+              { icon: MapPin, label: "Office", value: "3553 11TH ST, ASTORIA, NY 11106" },
               { icon: Clock, label: "Hours", value: "Mon–Fri, 9am–6pm ET" },
             ].map((i) => (
               <div key={i.label} className="flex gap-4">
